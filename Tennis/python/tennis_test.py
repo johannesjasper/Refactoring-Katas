@@ -67,3 +67,8 @@ class TestTennis:
     def test_get_score(self, p1Points, p2Points, score, p1Name, p2Name):
         game = play_game(p1Points, p2Points, p1Name, p2Name)
         assert score == game.score()
+
+    def test_wrong_name(self):
+        game = TennisGame("A", "B")
+        with pytest.raises(Exception):
+            game.won_point("C")
